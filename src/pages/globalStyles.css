@@ -1,0 +1,24 @@
+body {
+  /* ... outras propriedades ... */
+  background-image: url("../public/background.jpg");
+  background-repeat: no-repeat;
+  background-size: contain; /* Ajusta o zoom da imagem */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* 100% da altura da viewport */
+  margin: 0; /* Remove margens padrão do corpo */
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.644); /* Cor preta com 50% de opacidade */
+  z-index: -1; /* Coloca o fundo preto atrás do conteúdo do body */
+}

@@ -1,0 +1,20 @@
+.container {
+  width: 500px;
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #f9f100;                                 
+  padding: 10px;
+  background: rgba(183, 98, 0, 0.299);
+  box-shadow: 0 8px 32px 0 rgb(255, 128, 9);
+  backdrop-filter: blur(3px);
+  border-radius: 10px;
+  margin: auto;
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+}
+ h1 {
+    color: antiquewhite;
+ }
+
+
