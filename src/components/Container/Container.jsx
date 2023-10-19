@@ -28,5 +28,30 @@ const marcarTarefaConcluida = (id) => {
     setTarefas(tarefas.filter(tarefa => tarefa.id !== id)); // Remove tarefa concluída de tarefas
   }
 };
+  // Função para editar uma tarefa
+  const editarTarefa = (id) => {
+    const tarefaParaEditar = tarefas.find((tarefa) => tarefa.id === id);
+    setIdTarefaEditando(id); // Define ID da tarefa em edição
+    setTextoTarefaEditada(tarefaParaEditar.texto); // Preenche campo de edição com texto da tarefa
+  };
+
+  // Função para salvar a tarefa editada
+  const salvarTarefaEditada = (id) => {
+    const tarefasAtualizadas = tarefas.map((tarefa) =>
+      tarefa.id === id ? { ...tarefa, texto: textoTarefaEditada } : tarefa
+    );
+    setTarefas(tarefasAtualizadas); // Atualiza tarefas com a tarefa editada
+    setIdTarefaEditando(null); // Limpa ID da tarefa em edição
+    setTextoTarefaEditada(''); // Limpa texto da tarefa em edição
+  };
+
+
+  // Função para excluir uma tarefa
+  const excluirTarefa = (id) => {
+    const tarefasAtualizadas = tarefas.filter(tarefa => tarefa.id !== id);
+    setTarefas(tarefasAtualizadas); // Atualiza tarefas removendo a tarefa
+    setIdTarefaEditando(null); // Limpa ID da tarefa em edição
+  };
+
 
   export default Container;
