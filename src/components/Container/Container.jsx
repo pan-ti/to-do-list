@@ -52,6 +52,20 @@ const marcarTarefaConcluida = (id) => {
     setTarefas(tarefasAtualizadas); // Atualiza tarefas removendo a tarefa
     setIdTarefaEditando(null); // Limpa ID da tarefa em edição
   };
+// Filtra tarefas com base no termo de busca e no filtro selecionado
+const tarefasFiltradas = tarefas.filter((tarefa) => {
+  const textoTarefa = tarefa.texto.toLowerCase();
+  const busca = termoBusca.toLowerCase();
+  const correspondeBusca = textoTarefa.includes(busca);
+
+  if (filtro === 'completed') {
+    return tarefa.concluida && correspondeBusca;
+  } else if (filtro === 'active') {
+    return !tarefa.concluida && correspondeBusca;
+  } else {
+    return correspondeBusca;
+  }
+});
 
 
   export default Container;
